@@ -1,165 +1,149 @@
-// ============ Mobile Menu ============
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// ============ MATRIX RAIN EFFECT ============
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+const fontSize = 16;
+const columns = canvas.width / fontSize;
+const drops = [];
+
+for (let i = 0; i < columns; i++) {
+    drops[i] = Math.random() * canvas.height;
+}
+
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.fillStyle = '#00ff41';
+    ctx.font = fontSize + 'px Courier New';
+    ctx.shadowColor = '#00ff41';
+    ctx.shadowBlur = 10;
+    
+    for (let i = 0; i < drops.length; i++) {
+        const char = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(char, i * fontSize, drops[i]);
+        
+        if (drops[i] * Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i] += fontSize;
+    }
+}
+
+let matrixInterval = setInterval(drawMatrix, 50);
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
 
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+// ============ MOBILE MENU ============
+const navToggle = document.querySelector('.nav-toggle');
+const navLinks = document.querySelector('.nav-links');
+
+if (navToggle) {
+    navToggle.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.background = 'rgba(0, 0, 0, 0.9)';
+        navLinks.style.padding = '20px';
+        navLinks.style.gap = '10px';
     });
-});
+}
 
-// ============ Smooth Scroll ============
+// ============ SMOOTH SCROLL ============
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth' });
         }
     });
 });
 
-// ============ Floating Particles ============
-function createFloatingParticles() {
-    const container = document.querySelector('.floating-particles');
-    if (!container) return;
-
-    for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.style.position = 'absolute';
-        particle.style.width = Math.random() * 4 + 2 + 'px';
-        particle.style.height = particle.style.width;
-        particle.style.background = ['var(--primary)', 'var(--secondary)', 'var(--accent)'][Math.floor(Math.random() * 3)];
-        particle.style.borderRadius = '50%';
-        particle.style.opacity = Math.random() * 0.5;
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.top = Math.random() * 100 + '%';
-        particle.style.pointerEvents = 'none';
-        particle.style.animation = `float ${Math.random() * 20 + 10}s infinite linear`;
-        container.appendChild(particle);
-    }
-}
-
-createFloatingParticles();
-
-// ============ Counter Animation ============
-const counterElements = document.querySelectorAll('.counter');
-
-const counterObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-            const target = parseInt(entry.target.getAttribute('data-target'));
-            const duration = 2000;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    entry.target.textContent = target;
-                    clearInterval(timer);
-                    entry.target.classList.add('counted');
-                } else {
-                    entry.target.textContent = Math.floor(current);
-                }
-            }, 16);
-
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-counterElements.forEach(el => counterObserver.observe(el));
-
-// ============ Form Submission ============
-const contactForm = document.getElementById('contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
+// ============ FORM SUBMISSION ============
+const hackerForm = document.getElementById('hackerForm');
+if (hackerForm) {
+    hackerForm.addEventListener('submit', function (e) {
         e.preventDefault();
-
-        const name = this.querySelector('input[placeholder="Your Name"]').value;
-        const email = this.querySelector('input[placeholder="Your Email"]').value;
-        const subject = this.querySelector('input[placeholder="Subject"]').value;
-        const message = this.querySelector('textarea[placeholder="Your Message"]').value;
-
+        
+        const name = this.querySelector('input[placeholder="SENDER_NAME"]').value;
+        const email = this.querySelector('input[placeholder="SENDER_EMAIL"]').value;
+        const subject = this.querySelector('input[placeholder="MESSAGE_SUBJECT"]').value;
+        const message = this.querySelector('textarea[placeholder="MESSAGE_CONTENT"]').value;
+        
         if (name && email && subject && message) {
-            const mailtoLink = `mailto:pankajynr0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`)}`;
+            const mailtoLink = `mailto:pankajynr0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} <${email}>\n\n${message}`)}`;
             window.location.href = mailtoLink;
             this.reset();
-            alert('Thank you! Your message has been prepared.');
+            alert('[SUCCESS] MESSAGE TRANSMITTED');
         } else {
-            alert('Please fill all fields.');
+            alert('[ERROR] INCOMPLETE DATA');
         }
     });
 }
 
-// ============ Scroll Effects ============
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        navbar.style.borderBottomColor = 'rgba(255, 0, 110, 0.2)';
-    } else {
-        navbar.style.borderBottomColor = 'rgba(255, 255, 255, 0.1)';
+// ============ GLITCH EFFECT ============
+const glitchElements = document.querySelectorAll('.glitch');
+glitchElements.forEach(el => {
+    el.addEventListener('mouseover', () => {
+        el.style.animation = 'none';
+        setTimeout(() => {
+            el.style.animation = 'glitch-anim 0.3s infinite';
+        }, 10);
+    });
+});
+
+// ============ SCAN LINE EFFECT ============
+function createScanline() {
+    const scanline = document.createElement('div');
+    scanline.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #00ff41, transparent);
+        pointer-events: none;
+        z-index: 9999;
+        animation: scanMove 6s linear infinite;
+    `;
+    document.body.appendChild(scanline);
+    
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes scanMove {
+            0% { top: 0; }
+            100% { top: 100vh; }
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+createScanline();
+
+// ============ CONSOLE EFFECT ============
+console.log('%c🔓 SYSTEM ACCESS GRANTED 🔓', 'color: #00ff41; font-size: 20px; text-shadow: 0 0 10px #00ff41; font-weight: bold;');
+console.log('%cWelcome to PANKAJ KUMAR\'s Hacker Terminal', 'color: #00d9ff; font-size: 14px;');
+console.log('%cThis system is monitored. Unauthorized access is prohibited.', 'color: #ff0055; font-size: 12px;');
+
+// ============ RANDOM GLITCH ============
+setInterval(() => {
+    if (Math.random() > 0.95) {
+        document.body.style.filter = 'hue-rotate(90deg)';
+        setTimeout(() => {
+            document.body.style.filter = 'hue-rotate(0deg)';
+        }, 50);
     }
-});
+}, 3000);
 
-// ============ Intersection Observer for Animations ============
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-            entry.target.style.setProperty('--index', index + 1);
-            entry.target.style.animation = 'fadeInUp 0.8s ease forwards';
-            entry.target.style.animationDelay = `${index * 0.1}s`;
-            observer.unobserve(entry.target);
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.about-card, .stat-card, .skill-box, .timeline-item, .project-card, .info-card').forEach(el => {
-    observer.observe(el);
-});
-
-// ============ Keyboard Navigation ============
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    }
-});
-
-// ============ Active Nav Link ============
-window.addEventListener('scroll', () => {
-    let current = '';
-    const sections = document.querySelectorAll('section');
-
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute('id');
-        }
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.style.color = '';
-        if (link.getAttribute('href').slice(1) === current) {
-            link.style.color = 'var(--primary)';
-        }
-    });
-});
-
-console.log('Portfolio loaded! 🚀');
+console.log('%cLoading complete...', 'color: #00ff41;');
