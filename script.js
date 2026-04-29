@@ -1,63 +1,21 @@
-// ============ MATRIX RAIN EFFECT ============
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
+// ============ ANIMATIONS & INTERACTIONS ============
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
-const fontSize = 16;
-const columns = canvas.width / fontSize;
-const drops = [];
-
-for (let i = 0; i < columns; i++) {
-    drops[i] = Math.random() * canvas.height;
-}
-
-function drawMatrix() {
-    ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
-    ctx.fillStyle = '#00ff41';
-    ctx.font = fontSize + 'px Courier New';
-    ctx.shadowColor = '#00ff41';
-    ctx.shadowBlur = 10;
-    
-    for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        ctx.fillText(char, i * fontSize, drops[i]);
-        
-        if (drops[i] * Math.random() > 0.975) {
-            drops[i] = 0;
-        }
-        drops[i] += fontSize;
-    }
-}
-
-let matrixInterval = setInterval(drawMatrix, 50);
-
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
 
-// ============ MOBILE MENU ============
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-
-if (navToggle) {
-    navToggle.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.background = 'rgba(0, 0, 0, 0.9)';
-        navLinks.style.padding = '20px';
-        navLinks.style.gap = '10px';
+// Close menu when link clicked
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
-}
+});
 
 // ============ SMOOTH SCROLL ============
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -65,85 +23,194 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
     });
 });
+
+// ============ COUNTER ANIMATION ============
+const counters = document.querySelectorAll('.counter');
+
+const startCounting = (element) => {
+    const target = parseInt(element.getAttribute('data-target'));
+    let current = 0;
+    const increment = target / 50;
+
+    const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+            element.textContent = target;
+            clearInterval(timer);
+        } else {
+            element.textContent = Math.floor(current);
+        }
+    }, 30);
+};
+
+// Intersection Observer for counters
+const counterObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            startCounting(entry.target);
+            counterObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.5 });
+
+counters.forEach(counter => counterObserver.observe(counter));
 
 // ============ FORM SUBMISSION ============
-const hackerForm = document.getElementById('hackerForm');
-if (hackerForm) {
-    hackerForm.addEventListener('submit', function (e) {
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        
-        const name = this.querySelector('input[placeholder="SENDER_NAME"]').value;
-        const email = this.querySelector('input[placeholder="SENDER_EMAIL"]').value;
-        const subject = this.querySelector('input[placeholder="MESSAGE_SUBJECT"]').value;
-        const message = this.querySelector('textarea[placeholder="MESSAGE_CONTENT"]').value;
-        
+
+        const name = this.querySelector('input[placeholder="Your Name"]').value;
+        const email = this.querySelector('input[placeholder="Your Email"]').value;
+        const subject = this.querySelector('input[placeholder="Subject"]').value;
+        const message = this.querySelector('textarea[placeholder="Message"]').value;
+
         if (name && email && subject && message) {
-            const mailtoLink = `mailto:pankajynr0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`From: ${name} <${email}>\n\n${message}`)}`;
+            const mailtoLink = `mailto:pankajynr0@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
             window.location.href = mailtoLink;
+            
             this.reset();
-            alert('[SUCCESS] MESSAGE TRANSMITTED');
+            alert('Thank you! Your message has been prepared.');
         } else {
-            alert('[ERROR] INCOMPLETE DATA');
+            alert('Please fill all fields.');
         }
     });
 }
 
-// ============ GLITCH EFFECT ============
-const glitchElements = document.querySelectorAll('.glitch');
-glitchElements.forEach(el => {
-    el.addEventListener('mouseover', () => {
-        el.style.animation = 'none';
-        setTimeout(() => {
-            el.style.animation = 'glitch-anim 0.3s infinite';
-        }, 10);
+// ============ INTERSECTION OBSERVER FOR FADE-IN ============
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.animation = 'fadeInUp 0.8s ease-out forwards';
+            observer.unobserve(entry.target);
+        }
+    });
+}, observerOptions);
+
+document.querySelectorAll('.fade-in-up').forEach(el => {
+    el.style.opacity = '0';
+    observer.observe(el);
+});
+
+// ============ NAVBAR SCROLL EFFECT ============
+const navbar = document.querySelector('.navbar');
+let lastScrollTop = 0;
+
+window.addEventListener('scroll', () => {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > 50) {
+        navbar.style.boxShadow = '0 10px 30px rgba(0, 217, 255, 0.2)';
+    } else {
+        navbar.style.boxShadow = 'none';
+    }
+
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+});
+
+// ============ ACTIVE NAV LINK ============
+window.addEventListener('scroll', () => {
+    let current = '';
+    const sections = document.querySelectorAll('section');
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.style.color = '';
+        link.style.borderBottom = '';
+        if (link.getAttribute('href').slice(1) === current) {
+            link.style.color = 'var(--primary-color)';
+        }
     });
 });
 
-// ============ SCAN LINE EFFECT ============
-function createScanline() {
-    const scanline = document.createElement('div');
-    scanline.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background: linear-gradient(90deg, transparent, #00ff41, transparent);
-        pointer-events: none;
-        z-index: 9999;
-        animation: scanMove 6s linear infinite;
-    `;
-    document.body.appendChild(scanline);
-    
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes scanMove {
-            0% { top: 0; }
-            100% { top: 100vh; }
-        }
-    `;
-    document.head.appendChild(style);
+// ============ SKILL TAG HOVER EFFECT ============
+document.querySelectorAll('.tag').forEach(tag => {
+    tag.addEventListener('mouseenter', function() {
+        this.style.transform = 'translateY(-5px) scale(1.05)';
+    });
+
+    tag.addEventListener('mouseleave', function() {
+        this.style.transform = 'translateY(0) scale(1)';
+    });
+});
+
+// ============ PROJECT CARD PARALLAX ============
+document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mousemove', function(e) {
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+
+    card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+    });
+});
+
+// ============ FLOATING PARTICLES ANIMATION ============
+function createFloatingParticles() {
+    const container = document.querySelector('.floating-particles');
+    if (!container) return;
+
+    for (let i = 0; i < 20; i++) {
+        const particle = document.createElement('div');
+        particle.style.position = 'absolute';
+        particle.style.width = Math.random() * 5 + 2 + 'px';
+        particle.style.height = particle.style.width;
+        particle.style.background = ['#00d9ff', '#ff006e', '#00ff88'][Math.floor(Math.random() * 3)];
+        particle.style.borderRadius = '50%';
+        particle.style.opacity = Math.random() * 0.5;
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = Math.random() * 100 + '%';
+        particle.style.pointerEvents = 'none';
+        particle.style.animation = `particle-float ${Math.random() * 20 + 10}s infinite linear`;
+        container.appendChild(particle);
+    }
 }
 
-createScanline();
+createFloatingParticles();
 
-// ============ CONSOLE EFFECT ============
-console.log('%c🔓 SYSTEM ACCESS GRANTED 🔓', 'color: #00ff41; font-size: 20px; text-shadow: 0 0 10px #00ff41; font-weight: bold;');
-console.log('%cWelcome to PANKAJ KUMAR\'s Hacker Terminal', 'color: #00d9ff; font-size: 14px;');
-console.log('%cThis system is monitored. Unauthorized access is prohibited.', 'color: #ff0055; font-size: 12px;');
-
-// ============ RANDOM GLITCH ============
-setInterval(() => {
-    if (Math.random() > 0.95) {
-        document.body.style.filter = 'hue-rotate(90deg)';
-        setTimeout(() => {
-            document.body.style.filter = 'hue-rotate(0deg)';
-        }, 50);
+// ============ KEYBOARD NAVIGATION ============
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     }
-}, 3000);
+});
 
-console.log('%cLoading complete...', 'color: #00ff41;');
+// ============ CONSOLE MESSAGE ============
+console.log('%c🔓 ELITE HACKER PORTFOLIO 🔓', 'color: #00d9ff; font-size: 20px; font-weight: bold; text-shadow: 0 0 10px #00d9ff;');
+console.log('%cWelcome to Pankaj Kumar\'s Elite Hacker Portfolio', 'color: #00ff88; font-size: 14px;');
+console.log('%cPowered by Advanced Animations & Modern UI', 'color: #ff006e; font-size: 12px;');
+
+console.log('Portfolio loaded successfully! 🚀');
