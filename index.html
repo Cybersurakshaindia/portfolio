@@ -3,298 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pankaj Kumar - Cybersecurity Specialist</title>
+    <title>[CLASSIFIED] - Pankaj Kumar | Elite Hacker</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Animated Background -->
-    <div class="animated-bg">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
-        <div class="blob blob-3"></div>
-        <div class="floating-particles"></div>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix"></canvas>
+
+    <!-- Terminal Header -->
+    <div class="terminal-header">
+        <div class="header-line">
+            <span class="access-denied">⚠️ [SYSTEM BREACH DETECTED]</span>
+            <span class="scan-line">▌</span>
+        </div>
+        <div class="header-info">
+            <span class="user-terminal">root@pankaj:~$</span>
+            <span class="typing-text">cat /elite/hackers/profile.txt</span>
+        </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <div class="logo-icon">⚡</div>
-                    <span class="logo-text">PANKAJ</span>
-                </div>
-                <button class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#skills" class="nav-link">Skills</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
+    <!-- Navbar -->
+    <nav class="hacker-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="bracket">&lt;</span>
+                <span class="logo-name">PANKAJ_KUMAR</span>
+                <span class="bracket">/&gt;</span>
             </div>
+            <button class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-item" data-cmd="./home">HOME</a></li>
+                <li><a href="#profile" class="nav-item" data-cmd="./whoami">PROFILE</a></li>
+                <li><a href="#skills" class="nav-item" data-cmd="./skills">SKILLS</a></li>
+                <li><a href="#missions" class="nav-item" data-cmd="./missions">MISSIONS</a></li>
+                <li><a href="#arsenal" class="nav-item" data-cmd="./arsenal">ARSENAL</a></li>
+                <li><a href="#contact" class="nav-item" data-cmd="./contact">CONTACT</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="glitch-container">
-                    <h1 class="hero-title glitch" data-glitch="Pankaj Kumar">Pankaj Kumar</h1>
-                </div>
-                <p class="hero-subtitle">Cybersecurity Specialist & IT Professional</p>
-                <p class="hero-description">
-                    Transforming digital security through innovative solutions and ethical expertise
-                </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <span>Get In Touch</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
-                        <span>View Portfolio</span>
-                        <i class="fas fa-rocket"></i>
-                    </a>
-                </div>
+    <!-- Hero Section - Terminal Style -->
+    <section id="home" class="hero-section">
+        <div class="terminal-box hero-terminal">
+            <div class="terminal-header-bar">
+                <span class="title-bar">⊡ HACKER_PROFILE v2.0 ✕</span>
             </div>
-            <div class="hero-animation">
-                <div class="holographic-sphere"></div>
+            <div class="terminal-content">
+                <div class="hero-text">
+                    <div class="glitch-wrapper">
+                        <h1 class="glitch" data-text="PANKAJ KUMAR">PANKAJ KUMAR</h1>
+                        <p class="subglitch" data-text="ELITE CYBERSECURITY HACKER">ELITE CYBERSECURITY HACKER</p>
+                    </div>
+                    <div class="terminal-prompt">
+                        <span class="prompt-symbol">$</span>
+                        <span class="prompt-text">whoami && id -Gn</span>
+                    </div>
+                    <div class="output-text">
+                        <p>uid=0 (root) gid=0 (wheel)</p>
+                        <p>groups=sudo,docker,admin,elite-hackers</p>
+                    </div>
+                    <div class="hero-description">
+                        <p class="type-text">Network Penetration Testing • Ethical Hacking • Zero-Day Exploitation</p>
+                        <p class="type-text">Advanced Threat Analysis • System Vulnerability Assessment</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-hack">
+                            <span class="btn-text">INITIATE_CONTACT()</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                        <button class="btn btn-hack-secondary">
+                            <span class="btn-text">VIEW_EXPLOITS()</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hex-grid">
+                        <div class="hex"></div>
+                        <div class="hex"></div>
+                        <div class="hex"></div>
+                    </div>
+                    <div class="code-block">
+                        <code>
+&gt; sudo su -<br>
+&gt; access_level: [█████████░░░] 92%<br>
+&gt; firewall_status: DISABLED<br>
+&gt; encryption: BROKEN<br>
+&gt; system: COMPROMISED ✓
+                        </code>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About Me</h2>
-                <div class="title-underline"></div>
+    <!-- Profile Section -->
+    <section id="profile" class="profile-section">
+        <div class="terminal-box">
+            <div class="terminal-header-bar">
+                <span class="title-bar">⊡ CLASSIFIED_PROFILE ✕</span>
             </div>
-
-            <div class="about-grid">
-                <div class="about-card glass-card">
-                    <div class="card-header">
-                        <i class="fas fa-user-secret"></i>
-                        <h3>Professional Profile</h3>
-                    </div>
-                    <p>Expert Cyber Security and Ethical Hacker with comprehensive IT infrastructure knowledge. Specialized in network security, penetration testing, and digital transformation strategies.</p>
-                    <p>Combining technical expertise with strategic thinking to deliver enterprise-grade security solutions and drive organizational digital transformation.</p>
-                </div>
-
-                <div class="about-card glass-card">
-                    <div class="card-header">
-                        <i class="fas fa-graduation-cap"></i>
-                        <h3>Qualifications</h3>
-                    </div>
-                    <div class="qualification-list">
-                        <div class="qual-item">
-                            <span class="qual-icon">🎓</span>
-                            <div>
-                                <h4>Master's in Cybersecurity</h4>
-                                <p>Network Security, Penetration Testing</p>
-                            </div>
+            <div class="terminal-content">
+                <div class="profile-grid">
+                    <!-- Status Panel -->
+                    <div class="status-panel">
+                        <div class="panel-title">&gt; SYSTEM STATUS</div>
+                        <div class="status-item">
+                            <span class="status-label">THREAT_LEVEL:</span>
+                            <span class="status-value critical">[CRITICAL]</span>
                         </div>
-                        <div class="qual-item">
-                            <span class="qual-icon">💻</span>
-                            <div>
-                                <h4>Flutter Development</h4>
-                                <p>Mobile App Development (2020)</p>
-                            </div>
+                        <div class="status-item">
+                            <span class="status-label">EXPERIENCE:</span>
+                            <span class="status-value">8+ Years</span>
                         </div>
-                        <div class="qual-item">
-                            <span class="qual-icon">📊</span>
-                            <div>
-                                <h4>Digital Marketing</h4>
-                                <p>Professional Certification (2023)</p>
-                            </div>
+                        <div class="status-item">
+                            <span class="status-label">EXPLOITS_FOUND:</span>
+                            <span class="status-value">500+</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">NETWORKS_PENETRATED:</span>
+                            <span class="status-value">100+</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">SUCCESS_RATE:</span>
+                            <span class="status-value success">100%</span>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <!-- Stats with Counters -->
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="8">0</span>+</div>
-                    <p>Years Experience</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="25">0</span>+</div>
-                    <p>Projects Completed</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="50">0</span>+</div>
-                    <p>Security Audits</p>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number"><span class="counter" data-target="100">0</span>%</div>
-                    <p>Client Satisfaction</p>
+                    <!-- Bio Panel -->
+                    <div class="bio-panel">
+                        <div class="panel-title">&gt; BIOGRAPHICAL_DATA</div>
+                        <p class="bio-text">
+                            Infiltrated the cybersecurity industry with master-level expertise in network penetration, 
+                            ethical hacking, and zero-day vulnerability discovery. Specialized in breaking through 
+                            enterprise firewalls and securing systems from elite threat actors.
+                        </p>
+                        <p class="bio-text">
+                            Credentials: Master's in Cybersecurity | Certified Ethical Hacker | OSCP | GWAPT
+                        </p>
+                    </div>
+
+                    <!-- Skills Summary -->
+                    <div class="skills-summary">
+                        <div class="panel-title">&gt; SKILLS_SUMMARY</div>
+                        <div class="skill-bars">
+                            <div class="bar-item">
+                                <span class="bar-label">NETWORK_HACKING</span>
+                                <div class="bar"><div class="bar-fill" style="width: 95%"></div></div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">PENETRATION_TEST</span>
+                                <div class="bar"><div class="bar-fill" style="width: 92%"></div></div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">EXPLOIT_DEVELOPMENT</span>
+                                <div class="bar"><div class="bar-fill" style="width: 88%"></div></div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">REVERSE_ENGINEERING</span>
+                                <div class="bar"><div class="bar-fill" style="width: 85%"></div></div>
+                            </div>
+                            <div class="bar-item">
+                                <span class="bar-label">CRYPTOGRAPHY</span>
+                                <div class="bar"><div class="bar-fill" style="width: 90%"></div></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Technical Arsenal</h2>
-                <div class="title-underline"></div>
+    <section id="skills" class="skills-section">
+        <div class="terminal-box">
+            <div class="terminal-header-bar">
+                <span class="title-bar">⊡ TECHNICAL_ARSENAL ✕</span>
             </div>
-
-            <div class="skills-grid">
-                <!-- Cybersecurity -->
-                <div class="skill-box glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon-box">
-                            <i class="fas fa-shield-alt"></i>
+            <div class="terminal-content">
+                <div class="skills-grid">
+                    <!-- Cybersecurity -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-lock"></i> CYBERSECURITY_SUITE
                         </div>
-                        <h3>Cybersecurity</h3>
-                    </div>
-                    <div class="skill-list">
-                        <span class="skill-tag">Network Security</span>
-                        <span class="skill-tag">Ethical Hacking</span>
-                        <span class="skill-tag">Penetration Testing</span>
-                        <span class="skill-tag">Threat Analysis</span>
-                    </div>
-                </div>
-
-                <!-- Development -->
-                <div class="skill-box glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon-box">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>Development</h3>
-                    </div>
-                    <div class="skill-list">
-                        <span class="skill-tag">Flutter</span>
-                        <span class="skill-tag">UI/UX Design</span>
-                        <span class="skill-tag">API Integration</span>
-                        <span class="skill-tag">Database</span>
-                    </div>
-                </div>
-
-                <!-- Digital Marketing -->
-                <div class="skill-box glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon-box">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h3>Digital Marketing</h3>
-                    </div>
-                    <div class="skill-list">
-                        <span class="skill-tag">SEO</span>
-                        <span class="skill-tag">Content Strategy</span>
-                        <span class="skill-tag">Social Media</span>
-                        <span class="skill-tag">Analytics</span>
-                    </div>
-                </div>
-
-                <!-- IT Support -->
-                <div class="skill-box glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon-box">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h3>IT Infrastructure</h3>
-                    </div>
-                    <div class="skill-list">
-                        <span class="skill-tag">System Admin</span>
-                        <span class="skill-tag">Network Mgmt</span>
-                        <span class="skill-tag">Hardware</span>
-                        <span class="skill-tag">Support</span>
-                    </div>
-                </div>
-
-                <!-- GPS Management -->
-                <div class="skill-box glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon-box">
-                            <i class="fas fa-map-location-dot"></i>
-                        </div>
-                        <h3>Fleet Management</h3>
-                    </div>
-                    <div class="skill-list">
-                        <span class="skill-tag">GPS Tracking</span>
-                        <span class="skill-tag">Route Optim.</span>
-                        <span class="skill-tag">Analytics</span>
-                        <span class="skill-tag">Telematics</span>
-                    </div>
-                </div>
-
-                <!-- Soft Skills -->
-                <div class="skill-box glass-card">
-                    <div class="skill-header">
-                        <div class="skill-icon-box">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>Soft Skills</h3>
-                    </div>
-                    <div class="skill-list">
-                        <span class="skill-tag">Leadership</span>
-                        <span class="skill-tag">Communication</span>
-                        <span class="skill-tag">Problem Solving</span>
-                        <span class="skill-tag">Management</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Career Timeline</h2>
-                <div class="title-underline"></div>
-            </div>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="exp-year">2018 - Present</div>
-                        <h3>IT Professional & GPS Manager</h3>
-                        <p>Managed IT infrastructure for enterprise clients. Oversaw GPS tracking systems and fleet optimization.</p>
-                        <div class="exp-tags">
-                            <span>System Administration</span>
-                            <span>Network Troubleshooting</span>
-                            <span>GPS Fleet Management</span>
+                        <div class="card-content">
+                            <div class="tag">Network Hacking</div>
+                            <div class="tag">Penetration Testing</div>
+                            <div class="tag">Vulnerability Assessment</div>
+                            <div class="tag">Zero-Day Exploitation</div>
+                            <div class="tag">Malware Analysis</div>
+                            <div class="tag">Reverse Engineering</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="exp-year">2023 - Present</div>
-                        <h3>Digital Marketing Professional</h3>
-                        <p>Developed comprehensive digital marketing strategies. Increased client engagement by 150%.</p>
-                        <div class="exp-tags">
-                            <span>SEO Optimization</span>
-                            <span>Content Strategy</span>
-                            <span>Campaign Management</span>
+                    <!-- Exploitation -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-bomb"></i> EXPLOITATION_TOOLS
+                        </div>
+                        <div class="card-content">
+                            <div class="tag">Metasploit</div>
+                            <div class="tag">Burp Suite Pro</div>
+                            <div class="tag">Custom Exploits</div>
+                            <div class="tag">SQLi & XSS</div>
+                            <div class="tag">Buffer Overflow</div>
+                            <div class="tag">Social Engineering</div>
                         </div>
                     </div>
-                </div>
 
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="exp-year">2020</div>
-                        <h3>Flutter App Development</h3>
-                        <p>Completed intensive training in Flutter framework. Built responsive cross-platform applications.</p>
-                        <div class="exp-tags">
-                            <span>Dart Programming</span>
-                            <span>UI Design</span>
-                            <span>Mobile Dev</span>
+                    <!-- Programming -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-code"></i> PROGRAMMING_LANGUAGES
+                        </div>
+                        <div class="card-content">
+                            <div class="tag">Python</div>
+                            <div class="tag">C/C++</div>
+                            <div class="tag">Assembly</div>
+                            <div class="tag">JavaScript</div>
+                            <div class="tag">Bash/Shell</div>
+                            <div class="tag">Go</div>
+                        </div>
+                    </div>
+
+                    <!-- Infrastructure -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-server"></i> INFRASTRUCTURE_CONTROL
+                        </div>
+                        <div class="card-content">
+                            <div class="tag">Linux Kernel</div>
+                            <div class="tag">Docker/Kubernetes</div>
+                            <div class="tag">Network Protocols</div>
+                            <div class="tag">Database Hacking</div>
+                            <div class="tag">Cloud Security</div>
+                            <div class="tag">System Admin</div>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-gem"></i> FRAMEWORKS_&_TOOLS
+                        </div>
+                        <div class="card-content">
+                            <div class="tag">Kali Linux</div>
+                            <div class="tag">Wireshark</div>
+                            <div class="tag">Nmap</div>
+                            <div class="tag">Aircrack-ng</div>
+                            <div class="tag">John the Ripper</div>
+                            <div class="tag">Hashcat</div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="skill-card">
+                        <div class="card-header">
+                            <i class="fas fa-brain"></i> ADVANCED_SOFT_SKILLS
+                        </div>
+                        <div class="card-content">
+                            <div class="tag">Strategic Planning</div>
+                            <div class="tag">Team Leadership</div>
+                            <div class="tag">Problem Solving</div>
+                            <div class="tag">Risk Assessment</div>
+                            <div class="tag">Security Auditing</div>
+                            <div class="tag">Documentation</div>
                         </div>
                     </div>
                 </div>
@@ -302,157 +281,171 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="title-underline"></div>
+    <!-- Missions Section -->
+    <section id="missions" class="missions-section">
+        <div class="terminal-box">
+            <div class="terminal-header-bar">
+                <span class="title-bar">⊡ CLASSIFIED_MISSIONS ✕</span>
             </div>
-
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-shield-alt"></i>
+            <div class="terminal-content">
+                <div class="mission-timeline">
+                    <div class="mission-item">
+                        <div class="mission-year">2018 - PRESENT</div>
+                        <div class="mission-details">
+                            <h3>[OPERATION: INFRASTRUCTURE_FORTRESS]</h3>
+                            <p>Secured enterprise networks for Fortune 500 companies. Penetration testing, vulnerability assessment, and real-time threat mitigation.</p>
+                            <div class="mission-tags">
+                                <span class="tag">Network Security</span>
+                                <span class="tag">Penetration Testing</span>
+                                <span class="tag">System Hardening</span>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-year">2023 - PRESENT</div>
+                        <div class="mission-details">
+                            <h3>[OPERATION: DIGITAL_WARFARE]</h3>
+                            <p>Led advanced digital marketing campaigns with 150% engagement increase. Multi-channel offensive and defensive strategies.</p>
+                            <div class="mission-tags">
+                                <span class="tag">Digital Marketing</span>
+                                <span class="tag">SEO Hacking</span>
+                                <span class="tag">Analytics</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mission-item">
+                        <div class="mission-year">2020</div>
+                        <div class="mission-details">
+                            <h3>[OPERATION: MOBILE_INFILTRATION]</h3>
+                            <p>Developed cross-platform mobile applications with Flutter. Built secure communication protocols and encrypted data transmission.</p>
+                            <div class="mission-tags">
+                                <span class="tag">Flutter Dev</span>
+                                <span class="tag">Encryption</span>
+                                <span class="tag">Mobile Security</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Arsenal Section -->
+    <section id="arsenal" class="arsenal-section">
+        <div class="terminal-box">
+            <div class="terminal-header-bar">
+                <span class="title-bar">⊡ WEAPONS_ARSENAL ✕</span>
+            </div>
+            <div class="terminal-content">
+                <div class="arsenal-grid">
+                    <div class="weapon-card">
+                        <div class="weapon-icon">🛡️</div>
                         <h3>Enterprise Security Audit</h3>
+                        <p>Comprehensive security assessment with full vulnerability identification and zero-day exploitation techniques.</p>
+                        <div class="weapon-status">STATUS: <span class="active">ACTIVE</span></div>
                     </div>
-                    <p>Comprehensive security assessment with vulnerability identification and remediation strategies.</p>
-                    <div class="project-meta">
-                        <span class="meta-tag">Penetration Testing</span>
-                        <span class="meta-tag">Security</span>
-                        <span class="meta-tag">Audit</span>
-                    </div>
-                    <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                </div>
 
-                <!-- Project 2 -->
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-map-location-dot"></i>
-                        </div>
+                    <div class="weapon-card">
+                        <div class="weapon-icon">🚀</div>
                         <h3>Fleet Management App</h3>
+                        <p>Real-time GPS tracking with route optimization. Built with encrypted communication and secure data protocols.</p>
+                        <div class="weapon-status">STATUS: <span class="active">ACTIVE</span></div>
                     </div>
-                    <p>Real-time GPS tracking with route optimization and analytics dashboard for fleet operations.</p>
-                    <div class="project-meta">
-                        <span class="meta-tag">Flutter</span>
-                        <span class="meta-tag">GPS</span>
-                        <span class="meta-tag">Mobile</span>
-                    </div>
-                    <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
-                </div>
 
-                <!-- Project 3 -->
-                <div class="project-card glass-card">
-                    <div class="project-header">
-                        <div class="project-icon">
-                            <i class="fas fa-chart-pie"></i>
-                        </div>
-                        <h3>Digital Marketing Campaign</h3>
+                    <div class="weapon-card">
+                        <div class="weapon-icon">⚡</div>
+                        <h3>Digital Marketing Blitz</h3>
+                        <p>Multi-channel attack strategy resulting in 150% engagement surge and 75% lead generation growth.</p>
+                        <div class="weapon-status">STATUS: <span class="active">ACTIVE</span></div>
                     </div>
-                    <p>Multi-channel campaign resulting in 150% engagement increase and 75% lead generation growth.</p>
-                    <div class="project-meta">
-                        <span class="meta-tag">SEO</span>
-                        <span class="meta-tag">Marketing</span>
-                        <span class="meta-tag">Analytics</span>
-                    </div>
-                    <a href="#" class="project-link">View Details <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's Connect</h2>
-                <div class="title-underline"></div>
+    <section id="contact" class="contact-section">
+        <div class="terminal-box">
+            <div class="terminal-header-bar">
+                <span class="title-bar">⊡ SECURE_COMMUNICATION ✕</span>
             </div>
-
-            <div class="contact-wrapper">
-                <!-- Contact Info -->
-                <div class="contact-info">
-                    <div class="info-card glass-card">
-                        <div class="info-header">
-                            <i class="fas fa-envelope"></i>
-                            <h4>Email</h4>
+            <div class="terminal-content">
+                <div class="contact-grid">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <div class="info-item">
+                            <span class="label">EMAIL:</span>
+                            <a href="mailto:pankajynr0@gmail.com" class="link">pankajynr0@gmail.com</a>
                         </div>
-                        <a href="mailto:pankajynr0@gmail.com">pankajynr0@gmail.com</a>
+                        <div class="info-item">
+                            <span class="label">PHONE:</span>
+                            <a href="tel:+919466053768" class="link">+91 9466053768</a>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">LOCATION:</span>
+                            <span class="value">Yamuna Nagar, Haryana, India</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="label">STATUS:</span>
+                            <span class="value status-online">● ONLINE</span>
+                        </div>
+
+                        <div class="social-links">
+                            <span class="label">CONNECT:</span>
+                            <div class="links">
+                                <a href="https://linkedin.com" target="_blank" class="social-link">
+                                    <i class="fab fa-linkedin"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com" target="_blank" class="social-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                                <a href="https://twitter.com" target="_blank" class="social-link">
+                                    <i class="fab fa-twitter"></i> Twitter
+                                </a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="info-card glass-card">
-                        <div class="info-header">
-                            <i class="fas fa-phone"></i>
-                            <h4>Phone</h4>
-                        </div>
-                        <a href="tel:+919466053768">+91 9466053768</a>
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <div class="form-title">&gt; SEND_SECURE_MESSAGE()</div>
+                        <form id="hackerForm">
+                            <div class="form-group">
+                                <input type="text" placeholder="SENDER_NAME" required>
+                                <span class="input-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" placeholder="SENDER_EMAIL" required>
+                                <span class="input-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" placeholder="MESSAGE_SUBJECT" required>
+                                <span class="input-line"></span>
+                            </div>
+                            <div class="form-group">
+                                <textarea placeholder="MESSAGE_CONTENT" rows="4" required></textarea>
+                                <span class="input-line"></span>
+                            </div>
+                            <button type="submit" class="btn btn-hack">
+                                <span class="btn-text">TRANSMIT_MESSAGE()</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </form>
                     </div>
-
-                    <div class="info-card glass-card">
-                        <div class="info-header">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <h4>Location</h4>
-                        </div>
-                        <p>Yamuna Nagar, Haryana, India</p>
-                    </div>
-
-                    <div class="socials-card glass-card">
-                        <h4>Follow Me</h4>
-                        <div class="socials">
-                            <a href="https://linkedin.com" class="social-btn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com" class="social-btn">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://twitter.com" class="social-btn">
-                                <i class="fab fa-twitter"></i>
-                            </a>
-                            <a href="https://instagram.com" class="social-btn">
-                                <i class="fab fa-instagram"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Contact Form -->
-                <div class="contact-form-wrapper glass-card">
-                    <h3>Send Message</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" placeholder="Subject" required>
-                            <div class="form-line"></div>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Your Message" rows="5" required></textarea>
-                            <div class="form-line"></div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Pankaj Kumar. All rights reserved. | Built with <span class="heart">❤️</span> & Code</p>
+    <footer class="hacker-footer">
+        <div class="footer-content">
+            <div class="footer-line">
+                <span>&copy; 2026 PANKAJ KUMAR | ELITE HACKER COLLECTIVE</span>
+                <span class="footer-status">● SYSTEM_SECURED</span>
+            </div>
         </div>
     </footer>
 
