@@ -1,503 +1,72 @@
-<!doctype html>
-<html lang="en" class="h-full">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pankaj Kumar - IT Professional &amp; Cybersecurity Specialist</title>
-  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
-  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
-  <script src="/_sdk/element_sdk.js"></script>
-  <script src="/_sdk/data_sdk.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-  <style>
-    html, body { height: 100%; margin: 0; }
-    * { scroll-behavior: smooth; }
-    body { font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif; }
-    
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(40px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    
-    .fade-in { animation: fadeInUp 0.8s ease-out forwards; }
-    .stagger-1 { animation-delay: 0.1s; }
-    .stagger-2 { animation-delay: 0.2s; }
-    .stagger-3 { animation-delay: 0.3s; }
-    .stagger-4 { animation-delay: 0.4s; }
-    .stagger-5 { animation-delay: 0.5s; }
-    
-    .hero-section {
-      background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
-      min-height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .section-dark { background: #000; color: #fff; }
-    .section-light { background: #f5f5f5; color: #000; }
-    
-    .product-card {
-      background: #fff;
-      border-radius: 18px;
-      padding: 0;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.07);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .product-card:hover {
-      box-shadow: 0 20px 25px rgba(0,0,0,0.1);
-      transform: translateY(-8px);
-    }
-    
-    .product-image {
-      width: 100%;
-      height: 280px;
-      background: linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 64px;
-    }
-    
-    .btn-primary {
-      background: #000;
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 980px;
-      font-size: 15px;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      display: inline-block;
-      text-decoration: none;
-      text-align: center;
-    }
-    .btn-primary:hover {
-      background: #1a1a1a;
-      transform: scale(1.02);
-    }
-    
-    .btn-secondary {
-      background: transparent;
-      color: #0071e3;
-      padding: 12px 0;
-      border: none;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-    }
-    .btn-secondary:hover {
-      color: #0051ba;
-      gap: 12px;
-    }
-    
-    .grid-feature {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px;
-    }
-    
-    .feature-box {
-      padding: 28px;
-      border-radius: 12px;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .feature-box:hover {
-      transform: translateY(-4px);
-    }
-    
-    .feature-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
-    
-    .timeline-item {
-      padding: 40px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.1);
-    }
-    .timeline-item:last-child { border-bottom: none; }
-    
-    .input-apple {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid #d2d2d2;
-      border-radius: 8px;
-      font-size: 15px;
-      font-family: inherit;
-      transition: all 0.3s ease;
-    }
-    .input-apple:focus {
-      outline: none;
-      border-color: #0071e3;
-      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
-    }
-    
-    .section-title {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-    }
-    
-    .section-subtitle {
-      font-size: 24px;
-      font-weight: 400;
-      color: #666;
-      margin-bottom: 32px;
-      letter-spacing: -0.3px;
-    }
-  </style>
-  <style>body { box-sizing: border-box; }</style>
- </head>
- <body class="h-full bg-white text-black overflow-auto"><!-- Navigation -->
-  <nav class="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-   <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-    <a href="#home" class="text-xl font-semibold">Pankaj</a>
-    <div class="hidden md:flex gap-8">
-     <a href="#home" class="text-sm text-gray-600 hover:text-black transition">Home</a> <a href="#about" class="text-sm text-gray-600 hover:text-black transition">About</a> <a href="#skills" class="text-sm text-gray-600 hover:text-black transition">Skills</a> <a href="#experience" class="text-sm text-gray-600 hover:text-black transition">Experience</a> <a href="#projects" class="text-sm text-gray-600 hover:text-black transition">Projects</a> <a href="#contact" class="text-sm text-gray-600 hover:text-black transition">Contact</a>
-    </div><button id="mobile-menu-btn" class="md:hidden text-black"> <i data-lucide="menu" style="width:24px;height:24px;"></i> </button>
-   </div>
-   <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 px-6 py-4">
-    <a href="#home" class="block py-2 text-gray-600 hover:text-black">Home</a> <a href="#about" class="block py-2 text-gray-600 hover:text-black">About</a> <a href="#skills" class="block py-2 text-gray-600 hover:text-black">Skills</a> <a href="#experience" class="block py-2 text-gray-600 hover:text-black">Experience</a> <a href="#projects" class="block py-2 text-gray-600 hover:text-black">Projects</a> <a href="#contact" class="block py-2 text-gray-600 hover:text-black">Contact</a>
-   </div>
-  </nav><!-- Hero Section -->
-  <section id="home" class="hero-section pt-20">
-   <div class="max-w-5xl mx-auto px-6 text-center">
-    <p class="text-gray-600 text-sm font-medium mb-4 fade-in stagger-1">Welcome</p>
-    <h1 id="hero-title" class="text-6xl md:text-7xl font-bold mb-6 fade-in stagger-2 leading-tight">Hi, I'm <span class="text-blue-600">Pankaj Kumar</span></h1>
-    <p id="hero-subtitle" class="text-2xl md:text-3xl text-gray-700 mb-6 fade-in stagger-3 font-light">IT Professional &amp; Cybersecurity Specialist</p>
-    <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 fade-in stagger-4 leading-relaxed">Combining expertise in IT support, cybersecurity, and digital marketing to deliver comprehensive technology solutions.</p>
-    <div class="flex gap-4 justify-center flex-wrap fade-in stagger-5">
-     <a href="#contact" class="btn-primary">Get In Touch</a> <a href="#projects" class="btn-primary" style="background:#f5f5f5;color:#000;border:1px solid #e5e5e5;">View My Work</a>
-    </div>
-   </div>
-  </section><!-- About Section -->
-  <section id="about" class="section-light py-24 px-6">
-   <div class="max-w-6xl mx-auto">
-    <h2 class="section-title">About Me</h2>
-    <p class="section-subtitle">My professional journey</p>
-    <div class="grid lg:grid-cols-2 gap-16 mt-12">
-     <div>
-      <h3 class="text-3xl font-bold mb-6">Who I Am</h3>
-      <p class="text-lg text-gray-700 leading-relaxed mb-4">I'm a Cybersecurity and Ethical Hacking specialist with expertise in IT support and digital marketing. Currently serving as an IT Professional &amp; GPS Manager, I bring hands-on experience in system administration, network security, and fleet management solutions.</p>
-      <p class="text-lg text-gray-600 leading-relaxed">With a Master's degree in Cybersecurity &amp; Ethical Hacking and a Bachelor's in Computer Science, I combine strong technical foundations with practical experience. My diverse skill set spans penetration testing, network troubleshooting, mobile app development with Flutter, and comprehensive digital marketing strategies. I'm passionate about solving complex IT challenges and staying ahead in the rapidly evolving cybersecurity landscape.</p>
-     </div>
-     <div>
-      <h3 class="text-3xl font-bold mb-8">Education &amp; Certifications</h3>
-      <div class="space-y-4">
-       <div class="p-6 bg-white rounded-12 border border-gray-200">
-        <h4 class="font-bold text-lg mb-2">Master's in Cybersecurity &amp; Ethical Hacking</h4>
-        <p class="text-gray-600">Advanced training in network security, penetration testing, and threat analysis</p>
-       </div>
-       <div class="p-6 bg-white rounded-12 border border-gray-200">
-        <h4 class="font-bold text-lg mb-2">Bachelor's in Computer Science</h4>
-        <p class="text-gray-600">Strong foundation in programming, algorithms, and computer systems</p>
-       </div>
-       <div class="p-6 bg-white rounded-12 border border-gray-200">
-        <h4 class="font-bold text-lg mb-2">Flutter App Development (2020)</h4>
-        <p class="text-gray-600">Mobile application development using Google's Flutter framework</p>
-       </div>
-       <div class="p-6 bg-white rounded-12 border border-gray-200">
-        <h4 class="font-bold text-lg mb-2">Digital Marketing Professional (2023)</h4>
-        <p class="text-gray-600">Expertise in SEO, content marketing, and social media strategies</p>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Skills Section -->
-  <section id="skills" class="section-dark py-24 px-6">
-   <div class="max-w-6xl mx-auto">
-    <h2 class="section-title text-white">My Skills</h2>
-    <p class="text-gray-400 text-xl mb-16">A diverse set of technical and professional skills.</p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-     <div class="product-card">
-      <div class="feature-box bg-gradient-to-br from-gray-900 to-black">
-       <div class="feature-icon">
-        🔐
-       </div>
-       <h3 class="font-bold text-white text-lg mb-3">Cybersecurity</h3>
-       <p class="text-sm text-gray-300">Network Security, Ethical Hacking, Penetration Testing, Security Auditing, Threat Analysis</p>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="feature-box bg-gradient-to-br from-gray-900 to-black">
-       <div class="feature-icon">
-        💻
-       </div>
-       <h3 class="font-bold text-white text-lg mb-3">Development</h3>
-       <p class="text-sm text-gray-300">Flutter, Mobile Apps, UI/UX Design, Database Management, API Integration</p>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="feature-box bg-gradient-to-br from-gray-900 to-black">
-       <div class="feature-icon">
-        📈
-       </div>
-       <h3 class="font-bold text-white text-lg mb-3">Digital Marketing</h3>
-       <p class="text-sm text-gray-300">SEO, Content Marketing, Social Media Strategy, Analytics, Campaign Management</p>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="feature-box bg-gradient-to-br from-gray-900 to-black">
-       <div class="feature-icon">
-        🖥️
-       </div>
-       <h3 class="font-bold text-white text-lg mb-3">IT Support</h3>
-       <p class="text-sm text-gray-300">Hardware Troubleshooting, Network Admin, System Maintenance, User Support</p>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="feature-box bg-gradient-to-br from-gray-900 to-black">
-       <div class="feature-icon">
-        📍
-       </div>
-       <h3 class="font-bold text-white text-lg mb-3">GPS Management</h3>
-       <p class="text-sm text-gray-300">Fleet Tracking, Location Analytics, Route Optimization, Geofencing</p>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="feature-box bg-gradient-to-br from-gray-900 to-black">
-       <div class="feature-icon">
-        👥
-       </div>
-       <h3 class="font-bold text-white text-lg mb-3">Soft Skills</h3>
-       <p class="text-sm text-gray-300">Problem Solving, Communication, Leadership, Project Management</p>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Experience Section -->
-  <section id="experience" class="section-light py-24 px-6">
-   <div class="max-w-4xl mx-auto">
-    <h2 class="section-title">Work Experience</h2>
-    <p class="section-subtitle">My professional journey and milestones</p>
-    <div class="space-y-0 mt-12">
-     <div class="timeline-item">
-      <p class="text-sm text-blue-600 font-semibold mb-2">2018 - Present</p>
-      <h3 class="text-2xl font-bold mb-3">IT Professional &amp; GPS Manager</h3>
-      <p class="text-lg text-gray-700 mb-4">Managing IT infrastructure and providing technical support. Overseeing GPS tracking systems for fleet management and optimization.</p>
-      <div class="flex gap-2 flex-wrap">
-       <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">System Administration</span> <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Network Troubleshooting</span> <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">GPS Fleet Management</span>
-      </div>
-     </div>
-     <div class="timeline-item">
-      <p class="text-sm text-blue-600 font-semibold mb-2">2023 - Present</p>
-      <h3 class="text-2xl font-bold mb-3">Digital Marketing Professional</h3>
-      <p class="text-lg text-gray-700 mb-4">Developing and implementing digital marketing strategies. Specializing in SEO, content marketing, and social media campaigns.</p>
-      <div class="flex gap-2 flex-wrap">
-       <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">SEO Optimization</span> <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Content Strategy</span> <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Analytics &amp; Reporting</span>
-      </div>
-     </div>
-     <div class="timeline-item">
-      <p class="text-sm text-blue-600 font-semibold mb-2">2020</p>
-      <h3 class="text-2xl font-bold mb-3">Flutter App Development Training</h3>
-      <p class="text-lg text-gray-700 mb-4">Completed intensive training in Flutter framework for cross-platform mobile development. Gained hands-on experience building responsive apps.</p>
-      <div class="flex gap-2 flex-wrap">
-       <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Dart Programming</span> <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">UI Component Design</span> <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm">Cross-Platform Development</span>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Projects Section -->
-  <section id="projects" class="section-dark py-24 px-6">
-   <div class="max-w-6xl mx-auto">
-    <h2 class="section-title text-white">Featured Projects</h2>
-    <p class="text-gray-400 text-xl mb-16">Selection of my recent work and accomplishments.</p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-     <div class="product-card">
-      <div class="product-image">
-       🛡️
-      </div>
-      <div class="p-6">
-       <h3 class="font-bold text-lg text-white mb-3">Enterprise Network Security Audit</h3>
-       <p class="text-gray-300 text-sm mb-4">Conducted thorough security audit, identified vulnerabilities and implemented robust security measures.</p>
-       <div class="flex gap-2 flex-wrap">
-        <span class="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded">Penetration Testing</span> <span class="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded">Firewall Config</span>
-       </div>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="product-image">
-       📱
-      </div>
-      <div class="p-6">
-       <h3 class="font-bold text-lg text-white mb-3">Fleet Management Mobile App</h3>
-       <p class="text-gray-300 text-sm mb-4">Flutter-based app for real-time fleet tracking, route optimization, and performance analytics.</p>
-       <div class="flex gap-2 flex-wrap">
-        <span class="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded">Flutter</span> <span class="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded">GPS Integration</span>
-       </div>
-      </div>
-     </div>
-     <div class="product-card">
-      <div class="product-image">
-       📊
-      </div>
-      <div class="p-6">
-       <h3 class="font-bold text-lg text-white mb-3">Digital Marketing Campaign</h3>
-       <p class="text-gray-300 text-sm mb-4">Multi-channel campaign resulting in 150% engagement increase and 75% lead growth.</p>
-       <div class="flex gap-2 flex-wrap">
-        <span class="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded">SEO</span> <span class="px-2 py-1 bg-gray-800 text-gray-300 text-xs rounded">Content Marketing</span>
-       </div>
-      </div>
-     </div>
-    </div>
-   </div>
-  </section><!-- Contact Section -->
-  <section id="contact" class="section-light py-24 px-6">
-   <div class="max-w-5xl mx-auto">
-    <h2 class="section-title">Get In Touch</h2>
-    <p class="section-subtitle">Have a project? Let's discuss it</p>
-    <div class="grid lg:grid-cols-2 gap-16 mt-12">
-     <div>
-      <h3 class="text-2xl font-bold mb-8">Contact Information</h3>
-      <div class="space-y-6">
-       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-         <i data-lucide="mail" style="width:24px;height:24px;color:#0071e3;"></i>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add modern design elements */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            margin: 0;
+            transition: background 0.5s;
+        }
+        .hero {
+            position: relative;
+            background: url('hero-background.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        /* Glass-morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="glass">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Explore my projects and skills</p>
+            <a href="#" class="cta-button">Get Started</a>
         </div>
-        <div>
-         <p class="text-gray-600 text-sm">Email</p>
-         <p class="font-semibold text-lg">pankajynr0@gmail.com</p>
-        </div>
-       </div>
-       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-         <i data-lucide="phone" style="width:24px;height:24px;color:#0071e3;"></i>
-        </div>
-        <div>
-         <p class="text-gray-600 text-sm">Phone</p>
-         <p class="font-semibold text-lg">+91 9466053768</p>
-        </div>
-       </div>
-       <div class="flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-         <i data-lucide="map-pin" style="width:24px;height:24px;color:#0071e3;"></i>
-        </div>
-        <div>
-         <p class="text-gray-600 text-sm">Location</p>
-         <p class="font-semibold text-lg">Yamuna Nagar, Haryana</p>
-        </div>
-       </div>
-      </div>
-     </div>
-     <div>
-      <form id="contact-form" class="space-y-4">
-       <div>
-        <label for="name" class="text-sm font-semibold text-gray-700 block mb-2">Name</label> <input type="text" id="name" class="input-apple" placeholder="Your name" required>
-       </div>
-       <div>
-        <label for="email" class="text-sm font-semibold text-gray-700 block mb-2">Email</label> <input type="email" id="email" class="input-apple" placeholder="Your email" required>
-       </div>
-       <div>
-        <label for="message" class="text-sm font-semibold text-gray-700 block mb-2">Message</label> <textarea id="message" rows="4" class="input-apple resize-none" placeholder="Your message" required></textarea>
-       </div><button type="submit" id="submit-btn" class="btn-primary w-full"> <span id="submit-text">Send Message</span> <span id="submit-loading" class="hidden">Sending...</span> </button>
-       <div id="form-success" class="hidden text-green-600 text-center py-2 font-semibold">
-        ✓ Message sent successfully!
-       </div>
-       <div id="form-error" class="hidden text-red-600 text-center py-2 font-semibold">
-        Something went wrong. Please try again.
-       </div>
-      </form>
-     </div>
     </div>
-   </div>
-  </section><!-- Footer -->
-  <footer class="border-t border-gray-200 py-8 px-6 bg-white">
-   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-gray-600 text-sm">© 2024 Pankaj Kumar. All rights reserved.</p>
-    <div class="flex gap-4">
-     <a href="mailto:pankajynr0@gmail.com" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"> <i data-lucide="mail" style="width:18px;height:18px;color:#000;"></i> </a> <a href="tel:+919466053768" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition"> <i data-lucide="phone" style="width:18px;height:18px;color:#000;"></i> </a>
-    </div>
-   </div>
-  </footer>
-  <script>
-    // Default config
-    const defaultConfig = {
-      hero_title: "Pankaj Kumar",
-      hero_subtitle: "IT Professional & Cybersecurity Specialist"
-    };
-
-    // Element SDK
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange: async (config) => {
-        const name = config.hero_title || defaultConfig.hero_title;
-        const subtitle = config.hero_subtitle || defaultConfig.hero_subtitle;
-        document.getElementById('hero-title').innerHTML = `Hi, I'm <span class="text-blue-600">${name}</span>`;
-        document.getElementById('hero-subtitle').textContent = subtitle;
-      },
-      mapToCapabilities: (config) => ({
-        recolorables: [],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      }),
-      mapToEditPanelValues: (config) => new Map([
-        ["hero_title", config.hero_title || defaultConfig.hero_title],
-        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle]
-      ])
-    });
-
-    // Data SDK for contact form
-    const dataHandler = { onDataChanged(data) {} };
-    window.dataSdk.init(dataHandler);
-
-    // Contact form
-    document.getElementById('contact-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const btn = document.getElementById('submit-btn');
-      const submitText = document.getElementById('submit-text');
-      const submitLoading = document.getElementById('submit-loading');
-      const successMsg = document.getElementById('form-success');
-      const errorMsg = document.getElementById('form-error');
-
-      btn.disabled = true;
-      submitText.classList.add('hidden');
-      submitLoading.classList.remove('hidden');
-      successMsg.classList.add('hidden');
-      errorMsg.classList.add('hidden');
-
-      const result = await window.dataSdk.create({
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value,
-        submitted_at: new Date().toISOString()
-      });
-
-      btn.disabled = false;
-      submitText.classList.remove('hidden');
-      submitLoading.classList.add('hidden');
-
-      if (result.isOk) {
-        successMsg.classList.remove('hidden');
-        document.getElementById('contact-form').reset();
-        setTimeout(() => successMsg.classList.add('hidden'), 4000);
-      } else {
-        errorMsg.classList.remove('hidden');
-      }
-    });
-
-    // Mobile menu
-    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-
-    // Init Lucide
-    lucide.createIcons();
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f410a1ef7200dbf',t:'MTc3NzQ5NDM2NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+    <section id="services">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-item">Service 1</div>
+            <div class="service-item">Service 2</div>
+            <div class="service-item">Service 3</div>
+        </div>
+    </section>
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-item">"Great work!" - Client A</div>
+        <div class="testimonial-item">"Loved it!" - Client B</div>
+    </section>
+    <section id="blog-preview">
+        <h2>Blog Preview</h2>
+        <div class="blog-item">Blog post 1</div>
+        <div class="blog-item">Blog post 2</div>
+    </section>
+    <footer>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </footer>
+    <script>
+        // Improved form validation and animations can go here
+    </script>
+</body>
 </html>
